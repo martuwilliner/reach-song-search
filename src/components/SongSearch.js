@@ -32,7 +32,7 @@ const SongSearch = () => {
                 helpHttp().get(songUrl)
             ])
 
-            console.log(artistRes, songRes)
+            //console.log(artistRes, songRes)
 
             setBio(artistRes);
             setLyric(songRes);
@@ -51,10 +51,11 @@ const SongSearch = () => {
             <h2>Busca una canción</h2>
             {loading && <Loader/>}
             <SongForm handleSearch={handleSearch}/>
-            <SongDetails
+            {search && !loading  && (<SongDetails
             search={search}
             lyric={lyric}
-            bio={bio}/>
+            bio={bio}/>)}
+            
         </div>
     )
 }
